@@ -1,6 +1,4 @@
 # Large binary files exceeding GitHub's limits
-tools/screaming-frog-cli/lib/sf-chrome-*.jar
+tools/screaming-frog-cli/
 examples/*.seospider
 
-# Java runtime modules (large file)
-tools/screaming-frog-cli/jre/lib/modules

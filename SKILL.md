@@ -88,6 +88,8 @@ GOOGLE_SHEETS_SPREADSHEET_ID: your_google_sheets_spreadsheet_id
 GOOGLE_SHEETS_WORKSHEET_NAME: examle_worksheet_name
 INPUT_CELLS_RANGE: A1:A10
 OUTPUT_CELLS_RANGE: B1:B10
+CSV_FILE_PATH: /path/to/your/file.csv
+
 PULSE_FETCH_URLS[]: [url_1, url_2, ...]
 PLAYWRIGHT_URL: your_playwright_url
 
