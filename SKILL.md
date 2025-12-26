@@ -1,6 +1,6 @@
 ---
 name: seo-audit
-description: Audit an Anthropic Cookbook notebook based on a rubric. Use whenever a notebook review or audit is requested.
+description: Performs SEO audits on websites including page structure, meta tags, featured images (og:image), schema markup, and link analysis. Integrates with Google Sheets for batch URL processing. Use when auditing SEO, checking featured images, meta titles, meta descriptions, og:image tags, or page structure.
 ---
 
 # SEO Audit
@@ -112,7 +112,7 @@ ZOHO_PROJECTS_TASK_ID: your_zoho_projects_task_id
 ### Page Structure & Metadata
 
 - IF: the user requests an SEO audit for page structure and metadata.
-- THEN: Read and execute: `.claude/skills/seo-audit/cookbook/page-structure-and-metadata.md`
+- THEN: Read and execute: `.claude/skills/seo-audit/cookbook/page_structure_and_meta_data/page_structure_and_metadata.md`
 - EXAMPLE:
   - "Can you help me to seo audit this url page structure and metadata?"
   - "I want to run a seo audit for page structure and metadata."
