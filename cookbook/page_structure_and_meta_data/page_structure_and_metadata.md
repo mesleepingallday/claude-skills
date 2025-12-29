@@ -51,18 +51,17 @@ Each subworkflow can be triggered directly or as part of the full audit.
   - "featured images column"
   - "Do these pages have social share images?"
 
-### Meta Title Check (coming soon)
+### Meta Title Check & Meta Description Check
 
-- TRIGGER: User mentions meta titles, title tags, SEO titles
-- EXECUTE: meta-title-check.md
+- TRIGGER: User mentions meta titles, title tags, SEO titles or meta descriptions or metadata
+- EXECUTE: [meta-data.md](./subworkflows/meta-data.md)
 - EXAMPLE:
   - "Check meta titles"
+  - "Check meta descriptions"
+  - "Are meta titles optimized?"
+  - "Audit meta descriptions"
+  - "Check SEO titles"
   - "Audit title tags"
-
-### Meta Description Check (coming soon)
-
-- TRIGGER: User mentions meta descriptions
-- EXECUTE: meta-description-check.md
 
 ### Schema Markup Check (coming soon)
 
@@ -102,11 +101,13 @@ Each subworkflow can be triggered directly or as part of the full audit.
   - IF NOT: Ask user to provide SITE_URL AND: Execute Screaming Frog CLI to crawl SITE_URL and export crawl data as CSV.
 
 2. **Populate URLs to Google Sheets**
+
    - Connect to GOOGLE_SHEETS_SPREADSHEET_URL via google-sheets MCP
    - Write URLs to INPUT_CELLS_RANGE
    - Sort by SORT_OUTPUT_URLS_BY_PAGE_TYPE_ORDER if PAGE_TYPE_CLASSIFICATION enabled
 
 3. **Execute Enabled Checks**
+
    - IF FEATURED_IMAGE_CHECK = true:
      - Run [Featured Image Check](./subworkflows/featured-image-check.md) subworkflow
    - IF META_TITLE_CHECK = true:
