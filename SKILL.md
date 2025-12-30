@@ -83,6 +83,9 @@ ENABLE_PULSE_FETCH_MCP: false
 ENABLE_PLAYWRIGHT_MCP: false
 ENABLE_ZOHO_PROJECTS_MCP: false
 ENABLE_AHREFS_MCP: false
+ENABLE_GSC_MCP: false
+
+GSC_SITE_URL: https://www.example.com/
 
 GOOGLE_SHEETS_SPREADSHEET_ID: your_google_sheets_spreadsheet_id
 GOOGLE_SHEETS_WORKSHEET_NAME: examle_worksheet_name
@@ -120,3 +123,25 @@ ZOHO_PROJECTS_TASK_ID: your_zoho_projects_task_id
   - "Please perform an SEO audit focusing on page structure and metadata."
   - "SEO Audit meta title, meta description, headings for this page."
   - "page structure and metadata sheet."
+
+### Pages aren't Indexed (GSC)
+
+- IF: the user requests to check or export non-indexed pages from Google Search Console.
+- THEN: Read and execute: `.claude/skills/seo-audit/cookbook/pages-arent-indexed-gsc.md`
+- EXAMPLE:
+  - "Get non-indexed pages from GSC"
+  - "Export pages that aren't indexed to Google Sheets"
+  - "Check indexing status for this site"
+  - "Which pages aren't indexed in Google Search Console?"
+  - "Pages aren't indexed sheet"
+  - "List all pages not indexed by Google"
+  - "Get indexing issues from GSC"
+
+### Set Noindex to No-Target Pages
+
+- IF: the user requests to identify pages that should be set to noindex.
+- THEN: Read and execute: `.claude/skills/seo-audit/cookbook/set-noindex-to-no-target-pages.md`
+- EXAMPLE:
+  - "Which pages should be noindexed?"
+  - "Identify no-target pages for noindex"
+  - "Find duplicate/thin content pages to noindex"
