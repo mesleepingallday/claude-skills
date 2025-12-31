@@ -14,7 +14,6 @@ GOOGLE_SHEETS_WORKSHEET_NAME: "IM - SEO Clients"
 ## Prerequisites
 
 - zoho-projects MCP configured and enabled
-- google-sheets MCP configured and enabled
 - Access to Zoho Vault (for sensitive credentials)
 
 ## Instructions
@@ -62,29 +61,7 @@ GOOGLE_SHEETS_WORKSHEET_NAME: "IM - SEO Clients"
        domain: "nirahomes.com.au"
      ```
 
-4. **Check Google Sheets for Client Record**
-
-   - Connect to Agency Analytics spreadsheet (ID: 1I-Sd2zGnb2m0Fq32cB6o7YzsBTnn3Wk1DeU8g2P7M9M)
-   - Read "IM - SEO Clients" sheet
-   - Search for CLIENT_DOMAIN in column B
-   - EXAMPLE:
-     ```
-     mcp__google-sheets__get_sheet_data:
-       spreadsheet_id: "1I-Sd2zGnb2m0Fq32cB6o7YzsBTnn3Wk1DeU8g2P7M9M"
-       sheet: "IM - SEO Clients"
-     ```
-
-5. **Extract Available Information**
-
-   - From Google Sheet columns:
-     - Column A: Reseller
-     - Column B: Client website URL
-     - Column C: Status
-     - Column D: iReport Username
-     - Column E: iReport Password
-     - Column F: Work Report Doc link
-
-6. **Report Findings**
+4. **Report Findings**
 
    - Present found information to user
    - IF hosting credentials not found in spreadsheet:
@@ -100,12 +77,24 @@ GOOGLE_SHEETS_WORKSHEET_NAME: "IM - SEO Clients"
 - iReport Username: [username or "Not stored"]
 - iReport Password: [password or "Not stored"]
 - Hosting Access: Check Zoho Vault
+- Admin URL: [CMS admin URL]
 ```
+
+## Common CMS Admin URLs
+
+| CMS         | Admin URL Pattern                                      |
+| ----------- | ------------------------------------------------------ |
+| WordPress   | `https://[domain]/wp-admin/`                           |
+| Webflow     | `https://webflow.com/dashboard` (no direct site admin) |
+| Squarespace | `https://[domain]/config`                              |
+| Wix         | `https://manage.wix.com/`                              |
+| Shopify     | `https://[store].myshopify.com/admin`                  |
+| Strapi      | `https://[domain]/admin`                               |
 
 ## Tips
 
 - The Agency Analytics spreadsheet contains iReport/dashboard logins, NOT hosting credentials
 - Hosting credentials (cPanel, FTP, WordPress admin) are stored in Zoho Vault for security
 - Use domain parameter instead of project_id when possible - it auto-resolves
-- If MCP servers are disabled, run `claude mcp enable zoho-projects google-sheets` first
+- If MCP servers are disabled, run `claude mcp enable zoho-projects` first
 - Check task comments for access details shared by team members
