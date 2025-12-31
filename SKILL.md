@@ -170,6 +170,31 @@ ZOHO_PROJECTS_TASK_ID: your_zoho_projects_task_id
   - "Identify each page type"
   - "page type classification"
 
+### Business Trust Page Check
+
+- IF: the user requests to check for trust pages, legal pages, privacy policy, terms & conditions, about, contact, team, testimonials, or FAQs pages.
+- THEN: Read and execute: `.claude/skills/seo-audit/cookbook/business-trust-page-check.md`
+- EXAMPLE:
+  - "Check if this website has all trust pages"
+  - "Does this site have a privacy policy and terms page?"
+  - "Check for about, contact, team pages"
+  - "Business trust page audit"
+  - "Legal pages check"
+  - "Are there testimonials and FAQ pages?"
+  - "Check privacy policy, terms, about, contact, team, testimonials, FAQs"
+
+### Responsive Design Check
+
+- IF: the user requests to check if a website is responsive or mobile-friendly.
+- THEN: Read and execute: `.claude/skills/seo-audit/cookbook/responsive-design-check.md`
+- EXAMPLE:
+  - "Check if website is responsive"
+  - "Test mobile friendliness"
+  - "Check responsive design"
+  - "Is this site mobile-friendly?"
+  - "Test desktop, tablet, mobile views"
+  - "Responsive audit"
+
 ### Sitemap Check
 
 - IF: the user requests to check XML sitemap or HTML sitemap for a website.
