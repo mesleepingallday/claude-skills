@@ -67,7 +67,7 @@ sudo dpkg -i ScreamingFrogSEOSpider-XX.X.deb
 #!/bin/bash
 # complete-seo-audit.sh
 
-SITE_URL=$1
+CLIENT_SITE_URL=$1
 OUTPUT_DIR=$2
 TIMESTAMP=$(date +%Y%m%d_%H%M%S)
 AUDIT_DIR="${OUTPUT_DIR}/${TIMESTAMP}"
@@ -76,8 +76,8 @@ AUDIT_DIR="${OUTPUT_DIR}/${TIMESTAMP}"
 mkdir -p "${AUDIT_DIR}"
 
 # Run crawl
-echo "Starting crawl of ${SITE_URL}..."
-screaming-frog-cli crawl "${SITE_URL}" "${AUDIT_DIR}" --config ./configs/deep-crawl.config
+echo "Starting crawl of ${CLIENT_SITE_URL}..."
+screaming-frog-cli crawl "${CLIENT_SITE_URL}" "${AUDIT_DIR}" --config ./configs/deep-crawl.config
 
 # Export reports
 echo "Exporting reports..."

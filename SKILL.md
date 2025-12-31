@@ -1,6 +1,6 @@
 ---
 name: seo-audit
-description: Performs SEO audits on websites including page structure, meta tags, featured images (og:image), schema markup, and link analysis. Integrates with Google Sheets for batch URL processing. Use when auditing SEO, checking featured images, meta titles, meta descriptions, og:image tags, or page structure.
+description: Performs comprehensive SEO audits on websites including page structure, meta tags, featured images (og:image), schema markup, and link analysis. Integrates with Google Sheets for batch URL processing and Ahrefs for domain authority metrics (DR, UR, Backlinks). Use when auditing SEO, checking featured images, meta titles, descriptions, og:image tags, page structure, or fetching domain rating and backlink data.
 ---
 
 # SEO Audit
@@ -85,7 +85,7 @@ ENABLE_ZOHO_PROJECTS_MCP: false
 ENABLE_AHREFS_MCP: false
 ENABLE_GSC_MCP: false
 
-GSC_SITE_URL: https://www.example.com/
+CLIENT_SITE_URL: https://www.example.com/
 
 GOOGLE_SHEETS_SPREADSHEET_ID: your_google_sheets_spreadsheet_id
 GOOGLE_SHEETS_WORKSHEET_NAME: examle_worksheet_name
@@ -136,6 +136,18 @@ ZOHO_PROJECTS_TASK_ID: your_zoho_projects_task_id
   - "Pages aren't indexed sheet"
   - "List all pages not indexed by Google"
   - "Get indexing issues from GSC"
+
+### Ahrefs SEO History Check
+
+- IF: the user requests to check or update SEO metrics (DR, UR, Backlinks, Keywords, Traffic) from Ahrefs.
+- THEN: Read and execute: `.claude/skills/seo-audit/cookbook/ahrefs-seo-history-check.md`
+- EXAMPLE:
+  - "Check the SEO metrics for this domain using Ahrefs"
+  - "Update the SEO History Check sheet with current Ahrefs data"
+  - "Fetch Domain Rating, Backlinks, and traffic metrics for this site"
+  - "Get Ahrefs data and update the Google Sheet"
+  - "I want to see the current DR, UR, and backlinks in the sheet"
+  - "SEO history check with Ahrefs metrics"
 
 ### Set Noindex to No-Target Pages
 

@@ -6,7 +6,7 @@ Extract all non-indexed pages from Google Search Console for a website and expor
 
 ## Variables
 
-SITE_URL: https://example.com/
+CLIENT_SITE_URL: https://example.com/
 GSC_SITE_FORMAT: https://www.example.com/ | sc-domain:example.com
 GOOGLE_SHEETS_SPREADSHEET_ID: your_spreadsheet_id
 GOOGLE_SHEETS_WORKSHEET_NAME: Pages aren't Indexed (GSC)

@@ -4,7 +4,7 @@ Extract SEO data from Screaming Frog CLI crawl or .csv file and then populate Go
 
 ## Variables
 
-SITE_URL: https://example.com
+CLIENT_SITE_URL: https://example.com
 GOOGLE_SHEETS_SPREADSHEET_URL: https://docs.google.com/spreadsheets/d/your_google_sheets_spreadsheet_id/edit#gid=0
 GOOGLE_SHEETS_SPREADSHEET_ID: your_google_sheets_spreadsheet_id
 GOOGLE_SHEETS_WORKSHEET_NAME: examle_worksheet_name
@@ -96,9 +96,9 @@ Each subworkflow can be triggered directly or as part of the full audit.
 1. IF: CSV_FILE_PATH is provided in the user's request
    - THEN: Skip to Step 2.
 
-- IF NOT IF: SITE_URL is provided in the user's request.
-  - THEN: Execute Screaming Frog CLI to crawl SITE_URL and export crawl data as CSV.
-  - IF NOT: Ask user to provide SITE_URL AND: Execute Screaming Frog CLI to crawl SITE_URL and export crawl data as CSV.
+- IF NOT IF: CLIENT_SITE_URL is provided in the user's request.
+  - THEN: Execute Screaming Frog CLI to crawl CLIENT_SITE_URL and export crawl data as CSV.
+  - IF NOT: Ask user to provide CLIENT_SITE_URL AND: Execute Screaming Frog CLI to crawl CLIENT_SITE_URL and export crawl data as CSV.
 
 2. **Populate URLs to Google Sheets**
 
