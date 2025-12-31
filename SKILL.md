@@ -157,3 +157,27 @@ ZOHO_PROJECTS_TASK_ID: your_zoho_projects_task_id
   - "Which pages should be noindexed?"
   - "Identify no-target pages for noindex"
   - "Find duplicate/thin content pages to noindex"
+
+### Page Type Classification
+
+- IF: the user requests to classify or identify page types for URLs.
+- THEN: Read and execute: `.claude/skills/seo-audit/cookbook/page-structure-and-meta-data/subworkflows/page-type-classification.md`
+- EXAMPLE:
+  - "Classify page types for these URLs"
+  - "Identify page types from the spreadsheet"
+  - "What type of pages are these?"
+  - "Update the page type column"
+  - "Identify each page type"
+  - "page type classification"
+
+### Sitemap Check
+
+- IF: the user requests to check XML sitemap or HTML sitemap for a website.
+- THEN: Read and execute: `.claude/skills/seo-audit/cookbook/sitemap-check.md`
+- EXAMPLE:
+  - "Check if site has XML sitemap"
+  - "Does this site have an HTML sitemap?"
+  - "Check sitemaps for this URL"
+  - "Sitemap audit"
+  - "Does the site have a sitemap?"
+  - "Check XML and HTML sitemap"

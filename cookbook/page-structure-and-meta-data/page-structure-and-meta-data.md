@@ -63,6 +63,16 @@ Each subworkflow can be triggered directly or as part of the full audit.
   - "Check SEO titles"
   - "Audit title tags"
 
+### Page Type Classification
+
+- TRIGGER: User mentions page types, classify pages, identify page types
+- EXECUTE: [page-type-classification.md](./subworkflows/page-type-classification.md)
+- EXAMPLE:
+  - "Classify page types"
+  - "Identify what type each page is"
+  - "Update page type column"
+  - "What type of pages are these?"
+
 ### Schema Markup Check (coming soon)
 
 - TRIGGER: User mentions schema, structured data, JSON-LD

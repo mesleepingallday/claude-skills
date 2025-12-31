@@ -164,3 +164,81 @@ Also check for alternatives:
 - Handle timeout/error cases by marking as "Missing" with a note
 - For large datasets (500+ URLs), use Method A with batches of 5 parallel calls
 - For very large datasets, consider running in multiple sessions to avoid rate limits
+
+## Learning Curve (Updated: 2025-12-31)
+
+Lessons learned from real workflow execution on 156 URLs:
+
+### Optimal Execution Strategy
+
+1. **Hybrid Approach Works Best**
+   - Start with direct pulse-fetch for first 10-15 URLs (validates configuration)
+   - Then launch 3 parallel Task agents with haiku model for remaining URLs
+   - Each agent handles 35-50 URLs efficiently
+
+2. **Recommended Agent Configuration**
+   ```
+   AGENTS_COUNT: 3
+   URLS_PER_AGENT: 35-50
+   MODEL: haiku (fast, cost-effective)
+   ```
+
+3. **Processing Time**
+   - 156 URLs completed in ~5 minutes using hybrid approach
+   - Direct pulse-fetch: ~5 URLs per batch (parallel)
+   - Task agents: 3 agents processing 35-50 URLs each in parallel
+
+### Common URL Patterns & Expected Results
+
+| URL Type | Typical Result | Notes |
+|----------|---------------|-------|
+| Home page | Exists | Usually has og:image set |
+| Landing pages | Mixed | Depends on SEO setup |
+| Blog posts/Articles | Exists | Most CMS auto-generate from featured image |
+| Portfolio items | Exists | Gallery pages often have og:image |
+| Date archives (/YYYY/MM/) | Missing | WordPress date archives rarely have og:image |
+| Category/Tag pages | Missing | Archive pages typically lack og:image |
+| Pagination pages (?page=2) | Missing | Pagination inherits parent's missing og:image |
+| Thank you/Landing forms | Missing | Utility pages often overlooked |
+| CSS/JS files | Error/Missing | Non-HTML URLs return 404 or empty |
+| Test/Sample pages | Missing | Development pages usually lack og:image |
+
+### Error Handling
+
+1. **Non-HTML URLs** (CSS, JS, images)
+   - Will return 404 or empty response
+   - Mark as "Missing" in results
+   - Consider filtering these out before processing
+
+2. **Timeout Errors**
+   - Increase timeout for slow sites
+   - Default 60000ms (1 minute) is usually sufficient
+   - For slow sites, use 120000ms (2 minutes)
+
+3. **Rate Limiting**
+   - If processing 500+ URLs, add delays between batches
+   - Consider breaking into multiple sessions
+
+### Spreadsheet Update Tips
+
+1. **Column Detection**
+   - Featured Images column may vary (S, T, V depending on sheet structure)
+   - Always verify header row position before bulk updates
+   - Use `get_sheet_data` to confirm column layout
+
+2. **Data Alignment**
+   - Ensure results array matches exact row count
+   - Missing alignment causes data shift errors
+   - Count URLs before and after processing to verify
+
+### Real-World Results Distribution
+
+From 156 URL audit:
+- **~40% Exists** (62 URLs with og:image)
+- **~60% Missing** (94 URLs without og:image)
+
+Most missing og:image pages were:
+- Date archive pages (all missing)
+- Category/pagination pages (all missing)
+- Utility pages (thank you, forms, maintenance)
+- Test/development pages
